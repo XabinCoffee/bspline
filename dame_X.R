@@ -23,7 +23,6 @@ dame_X <- function (delta, lambda) {
       X[i,2] <- delta$y[i] - lambda[i] * X[i+1,2]
     }
     
-    
 
     return(X)
 }
