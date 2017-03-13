@@ -24,15 +24,15 @@ dame_AlfaBetaGamma <- function (n, nudos) {
   	gamma[1] <- 0
   	
   	
-  	for (i in 2:n){
+  	for (i in 2:(n-1)){
   	  alfa[i] <- ((nudos[i+4]-nudos[i+3])^2)/(nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2])
   	  beta[i] <- (((nudos[i+3]-nudos[i+1])*(nudos[i+4]-nudos[i+3]))/((nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2]))) + (((nudos[i+5]-nudos[i+3])*(nudos[i+3]-nudos[i+2]))/((nudos[i+5]-nudos[i+2])*(nudos[i+4]-nudos[i+2])))
   	  gamma[i] <- ((nudos[i+3]-nudos[i+2])^2)/(nudos[i+4]-nudos[i+2])*(nudos[i+5]-nudos[i+2])
   	}
   
-  	alfa[n+1] <- 0
-  	beta[n+1] <- 1
-  	gamma[n+1] <- 0 
+  	alfa[n] <- 0
+  	beta[n] <- 1
+  	gamma[n] <- 0 
   	  
   	res       <- NULL
   	res$alfa  <- alfa
