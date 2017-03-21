@@ -14,5 +14,12 @@ N <- function (i, p, u, nudos) {
     ### Calcular el valor de la funcion base N(i,p,u)
     nip <- 0
     
+    if (p==0){
+      nip<-1
+    }
+    else {
+      
+    }
+    
   	return(nip)
 }
