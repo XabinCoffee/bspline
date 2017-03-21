@@ -15,14 +15,13 @@ dame_X <- function (delta, lambda) {
     
     X  <- data.frame(x=double(), y=double())
     
-    X[n-2,1]<-delta$x[n-2]
-    X[n-2,2]<-delta$y[n-2]
+    X[n,1]<-delta$x[n-2]
+    X[n,2]<-delta$y[n-2]
     
-    for (i in (n-3):1){
-      X[i,1] <- delta$x[i] - lambda[i] * X[i+1,1]
-      X[i,2] <- delta$y[i] - lambda[i] * X[i+1,2]
+    for (i in (n-1):1){
+      X[i,1] <- delta$x[i] - lambda[i+1] * X[i+1,1]
+      X[i,2] <- delta$y[i] - lambda[i+1] * X[i+1,2]
     }
     
-
     return(X)
 }
