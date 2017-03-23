@@ -24,10 +24,18 @@ dame_AlfaBetaGamma <- function (n, nudos) {
   	gamma[1] <- 0
   	
   	
+  	
+  	  
   	for (i in 2:(n-1)){
-  	  alfa[i] <- ((nudos[i+4]-nudos[i+3])^2)/(nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2])
-  	  beta[i] <- (((nudos[i+3]-nudos[i+1])*(nudos[i+4]-nudos[i+3]))/((nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2]))) + (((nudos[i+5]-nudos[i+3])*(nudos[i+3]-nudos[i+2]))/((nudos[i+5]-nudos[i+2])*(nudos[i+4]-nudos[i+2])))
-  	  gamma[i] <- ((nudos[i+3]-nudos[i+2])^2)/(nudos[i+4]-nudos[i+2])*(nudos[i+5]-nudos[i+2])
+  	  
+  	  denomA<-(nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2])
+  	  denomB1<-(nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2]) 
+  	  denomB2<-(nudos[i+5]-nudos[i+2])*(nudos[i+4]-nudos[i+2])
+  	  denomG<-(nudos[i+4]-nudos[i+2])*(nudos[i+5]-nudos[i+2])
+  	  
+  	  alfa[i] <- ((nudos[i+4]-nudos[i+3])^2) / denomA
+  	  beta[i] <- (((nudos[i+3]-nudos[i+1])*(nudos[i+4]-nudos[i+3]))/denomB1) + (((nudos[i+5]-nudos[i+3])*(nudos[i+3]-nudos[i+2]))/denomB2)
+  	  gamma[i] <- ((nudos[i+3]-nudos[i+2])^2)/denomG
   	}
   
   	alfa[n] <- 0

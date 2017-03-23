@@ -36,15 +36,17 @@ calculaPuntosControl <- function(datos, nudos) {
   	#rownames(puntosControl) <- NULL
   	#colnames(puntosControl) <- c("x", "y")
   	
+  	n<-dim(X)[1]
+  	
   	puntosControl <- data.frame(x=double(), y=double())
   	
   	puntosControl[1,]<-X[1,1]
   	puntosControl[2,]<-X[2,1]
   	
-  	puntosControl[nDatos+1,]<-X[nDatos,]
-  	puntosControl[nDatos,]<-X[nDatos,]
+  	puntosControl[n+2,]<-X[n,]
+  	puntosControl[n+1,]<-X[n,]
   	
-  	for (i in 2:nDatos-1){
+  	for (i in 2:n-1){
   	  
   	  puntosControl[i+1,]<-X[i,]
   	  

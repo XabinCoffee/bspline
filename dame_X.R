@@ -9,18 +9,17 @@
 #######################################################################
 dame_X <- function (delta, lambda) {
     
-    n <- length(lambda)
+    n <- length(lambda) + 1
     ### CODIGO A REALIZAR:
     ### Calcular X
     
     X  <- data.frame(x=double(), y=double())
     
-    X[n,1]<-delta$x[n-2]
-    X[n,2]<-delta$y[n-2]
+    X[n,]<-delta[n,]
+    
     
     for (i in (n-1):1){
-      X[i,1] <- delta$x[i] - lambda[i+1] * X[i+1,1]
-      X[i,2] <- delta$y[i] - lambda[i+1] * X[i+1,2]
+      X[i,] <- delta[i,] - (lambda[i] * X[i+1,])
     }
     
     return(X)

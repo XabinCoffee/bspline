@@ -15,31 +15,35 @@ dame_LambdaDelta <- function (datos, alfa, beta, gamma) {
     ### CODIGO A REALIZAR:
     ### Calcular lambda y delta 
 
-  	lambda[1] <- gamma[1]/beta[1]
-  	delta[1,1] <- datos$x[1]/beta[1]
-  	delta[1,2] <- datos$y[1]/beta[1]
+  	lambda[1] <- gamma[1]
+  	delta[1,1] <- datos$x[1]
+  	delta[1,2] <- datos$y[1]
   	  
   	
-  	
-  	for (i in 2:n){
-  	  
-  	  if ((beta[i]-(alfa[i]*gamma[i-1])) == 0){
-  	    lambda[i] <- 0
-  	  }else{
-  	    lambda[i] <- gamma[i] / (beta[i]-(alfa[i]*gamma[i-1]))
-  	  }
-  	}
+  	#Calculo de lambda
   	
   	for (i in 2:(n-1)){
-  	  
-  	  if ((beta[i] - (alfa[i] * lambda[i-1])) == 0){
-  	    delta[i,1] <- 0
-  	    delta[i,2] <- 0
+  	  div <- beta[i]-(alfa[i]*lambda[i-1])
+  	    
+    	  if (div == 0){
+    	    lambda[i] <- 0
+    	  }else{
+    	    lambda[i] <- gamma[i] / div
+    	       }
+  	}
+  	
+  	
+  	
+  	#Calculo de delta
+  	
+  	for (i in 2:n){
+  	  div_delta <- beta[i] - (alfa[i] * lambda[i-1])
+  	  if ( div_delta == 0 ){
+  	    delta[i,] <- 0
   	  }
   	  
   	  else{
-  	    delta[i,1] <- (datos$x[i] - (alfa[i] * delta$x[i-1]))/ (beta[i] - (alfa[i] * lambda[i-1]))
-  	    delta[i,2] <- (datos$y[i] - (alfa[i] * delta$y[i-1]))/ (beta[i] - (alfa[i] * lambda[i-1]))
+  	    delta[i,] <- (datos[i,] - (alfa[i] * delta[i-1,]))/ div_delta
   	  }
   	  
   	}

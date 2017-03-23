@@ -17,9 +17,19 @@ puntosEnCurva <- function(bspline, nPuntos=NULL) {
   	### Generamos las coordenadas (x, y) y las almacenamos en la variable puntos
   	puntos <- NULL
 
-	# rownames(puntos) <- NULL
-	# colnames(puntos) <- c("x", "y")
-	# puntos <- data.frame(puntos)
+
+	puntos <- data.frame(x=double(), y=double())
+	
+	
+	n <- nrow(puntosControl)
+	
+	num <- 1/nPuntos
+	
+	puntos[1,1] <- puntosControl[1,1]
+	puntos[1,2] <- puntosControl[1,2]
+	puntos[nPuntos,1] <- puntosControl[n,1]
+	puntos[nPuntos,2] <- puntosControl[n,2]
+	
 
 	return(puntos)
 }

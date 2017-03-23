@@ -19,6 +19,8 @@ N <- function (i, p, u, nudos) {
     }
     else {
       
+      nip <- ((u - nudos[i])/(nudos[i+p] - nudos[i])) * N(i,p-1,u,nudos) + ((nudos[i+p+1] - u)/(nudos[i+p+1] - nudos[i+1])) * N(i+1,p-1,u,nudos)
+      
     }
     
   	return(nip)
