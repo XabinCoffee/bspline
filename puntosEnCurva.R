@@ -18,18 +18,13 @@ puntosEnCurva <- function(bspline, nPuntos=NULL) {
   	puntos <- NULL
 
 
-	puntos <- data.frame(x=double(), y=double())
-	
-	
-	n <- nrow(puntosControl)
-	
-	num <- 1/nPuntos
-	
-	puntos[1,1] <- puntosControl[1,1]
-	puntos[1,2] <- puntosControl[1,2]
-	puntos[nPuntos,1] <- puntosControl[n,1]
-	puntos[nPuntos,2] <- puntosControl[n,2]
-	
+	  puntos <- data.frame(x=double(), y=double())
+	 
+	  num <- N(3,p,0.5,nudos)
+	  print(num)
 
-	return(puntos)
+	  rownames(puntos) <- NULL
+	  colnames(puntos) <- c("x", "y")
+	  
+	  return(puntos)
 }
