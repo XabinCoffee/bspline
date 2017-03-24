@@ -32,16 +32,18 @@ calculaPuntosControl <- function(datos, nudos) {
     ### CODIGO A REALIZAR:
     ### Calcular los puntos de control de la bspline
 
+  	
   
   	#rownames(puntosControl) <- NULL
   	#colnames(puntosControl) <- c("x", "y")
   	
-  	n<-dim(X)[1]
-  	
   	puntosControl <- data.frame(x=double(), y=double())
   	
-  	puntosControl[1,]<-X[1,1]
-  	puntosControl[2,]<-X[2,1]
+  	n<-dim(X)[1]
+  
+  	#Para calcular los puntos de control necesitamos los valores que hemos conseguido para X
+  	puntosControl[1,]<-X[1,]
+  	puntosControl[2,]<-X[2,]
   	
   	puntosControl[n+2,]<-X[n,]
   	puntosControl[n+1,]<-X[n,]

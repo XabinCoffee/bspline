@@ -15,9 +15,11 @@ dame_X <- function (delta, lambda) {
     
     X  <- data.frame(x=double(), y=double())
     
+    
+    #Ultimo elemento de X
     X[n,]<-delta[n,]
     
-    
+    #Usando el ultimo elemento de X podemos calcular el elemento previo.
     for (i in (n-1):1){
       X[i,] <- delta[i,] - (lambda[i] * X[i+1,])
     }

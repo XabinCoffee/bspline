@@ -15,35 +15,41 @@ dame_LambdaDelta <- function (datos, alfa, beta, gamma) {
     ### CODIGO A REALIZAR:
     ### Calcular lambda y delta 
 
+  	#Tratamos el primer elemento
   	lambda[1] <- gamma[1]
-  	delta[1,1] <- datos$x[1]
-  	delta[1,2] <- datos$y[1]
+  	delta[1,] <- datos[1,]
+  	delta[1,] <- datos[1,]
   	  
   	
   	#Calculo de lambda
+  	#Calculamos los elementos de lambda a partir del 2º elemento hasta n-1
+  	#Hay que comprobar que el denominador no sea 0
   	
   	for (i in 2:(n-1)){
   	  div <- beta[i]-(alfa[i]*lambda[i-1])
   	    
-    	  if (div == 0){
-    	    lambda[i] <- 0
-    	  }else{
+    	  if (div > 1.0e-8){
     	    lambda[i] <- gamma[i] / div
+    	 
+    	  }else{
+    	    lambda[i] <- 0
     	       }
   	}
   	
   	
   	
   	#Calculo de delta
+  	#Calculamos el resto de los elementos de delta, otra vez hay que comprobar que el denominador no sea 0
   	
   	for (i in 2:n){
   	  div_delta <- beta[i] - (alfa[i] * lambda[i-1])
-  	  if ( div_delta == 0 ){
-  	    delta[i,] <- 0
+  	  if ( div_delta > 1.0e-8 ){
+  	    delta[i,] <- (datos[i,] - (alfa[i] * delta[i-1,]))/ div_delta
+  	   
   	  }
   	  
   	  else{
-  	    delta[i,] <- (datos[i,] - (alfa[i] * delta[i-1,]))/ div_delta
+  	    delta[i,] <- 0
   	  }
   	  
   	}

@@ -16,15 +16,24 @@ puntosEnCurva <- function(bspline, nPuntos=NULL) {
   	### CODIGO A REALIZAR:
   	### Generamos las coordenadas (x, y) y las almacenamos en la variable puntos
   	puntos <- NULL
+  	nPuntos <- dim(puntosControl)[1]
+  	
+  	#seq(from=0, to=1, by=1/(nDatos-p+2))
+  	
+  	#Calculamos el punto de u desde 0 hasta 0.999 (se excluye 1 por que puede dar problemas en el cálculo)
+  	
+  	for(u in seq(from=0,to=0.999,by=1/120)){
+  	  
+  	  sum <- c(0,0)
+  	  
+  	  for(i in 1:nPuntos){
+  	    sum <- sum + N(i,p,u,nudos)*puntosControl[i,]
+  	  }
+  	  puntos <- rbind(puntos, sum)
+  	}
+  	
+  	
+  	print(puntos)
 
-
-	  puntos <- data.frame(x=double(), y=double())
-	 
-	  num <- N(3,p,0.5,nudos)
-	  print(num)
-
-	  rownames(puntos) <- NULL
-	  colnames(puntos) <- c("x", "y")
-	  
-	  return(puntos)
+  	return(puntos)
 }
