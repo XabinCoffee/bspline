@@ -23,12 +23,13 @@ puntosEnFuncionesBase <- function(bspline, nPuntos=NULL) {
     
     for(u in seq(from=0,to=0.999,by=1/100)){
       
-      sum <- c(0,0)
-      
       for(i in 1:nPuntos){
-        sum <- sum + N(i,p,u,nudos)*puntosControl[i,]
+        
+        x<- u
+        y<- N(i,p,u,nudos)
+     
+        puntos<-rbind(x,y,i)
       }
-      puntos <- rbind(puntos, sum)
     }
 
 	# rownames(puntos) <- NULL
