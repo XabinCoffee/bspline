@@ -18,11 +18,10 @@ dame_LambdaDelta <- function (datos, alfa, beta, gamma) {
   	#Tratamos el primer elemento
   	lambda[1] <- gamma[1]
   	delta[1,] <- datos[1,]
-  	delta[1,] <- datos[1,]
   	  
   	
   	#Calculo de lambda
-  	#Calculamos los elementos de lambda a partir del 2º elemento hasta n-1
+  	#Calculamos los elementos de lambda a partir del 2? elemento hasta n-1
   	#Hay que comprobar que el denominador no sea 0
   	
   	for (i in 2:(n-1)){

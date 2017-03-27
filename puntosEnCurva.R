@@ -20,9 +20,9 @@ puntosEnCurva <- function(bspline, nPuntos=NULL) {
   	
   	#seq(from=0, to=1, by=1/(nDatos-p+2))
   	
-  	#Calculamos el punto de u desde 0 hasta 0.999 (se excluye 1 por que puede dar problemas en el cálculo)
+  	#Calculamos el punto de u desde 0 hasta 0.999 (se excluye 1 por que puede dar problemas en el c?lculo)
   	
-  	for(u in seq(from=0,to=0.999,by=1/120)){
+  	for(u in seq(from=0,to=0.999,by=1/100)){
   	  
   	  sum <- c(0,0)
   	  

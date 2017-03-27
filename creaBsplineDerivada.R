@@ -14,7 +14,16 @@ creaBsplineDerivada <- function(bspline) {
     }	else {
         ### CODIGO A REALIZAR:
         ### Calculamos los nudos de la B-spline derivada
-        nudos <- NULL
+        
+      #nudos_bspline <- bspline$nudos
+        
+       # n <- dim(nudos_bspline)
+      #  for (i in 1:(n-1)){
+       #   nudos[i] <-nudos_bspline[i+1]
+      #  }
+      
+      nudos<-NULL
+        
 
         ### Mostramos los nudos generados por pantalla
         muestraNudos(nudos)

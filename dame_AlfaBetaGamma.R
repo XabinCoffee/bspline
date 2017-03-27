@@ -22,10 +22,7 @@ dame_AlfaBetaGamma <- function (n, nudos) {
   	alfa[1] <- 0
   	beta[1] <- 1
   	gamma[1] <- 0
-  	
-  	
-  	
-  	  
+
   	for (i in 2:(n-1)){
   	  
   	  denomA<-(nudos[i+4]-nudos[i+1])*(nudos[i+4]-nudos[i+2])
